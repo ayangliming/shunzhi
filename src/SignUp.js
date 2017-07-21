@@ -1,5 +1,6 @@
   // 注册
 import React, { Component } from 'react'
+import axios from "axios"
 class SignUp extends Component {
     style={
       "width":"300px",
@@ -11,7 +12,15 @@ class SignUp extends Component {
       let username= this.userNameInput.value
       let password= this.passwordInput.value
       console.log({username,password})
+      let data ={username,password}
+      axios.post('http://192.168.0.138:5000/signup',data)
+      .then(res=>{
+        console.log(res)
+
+          alert(res.data.message)
+      })
     }
+
   render() {
     return (
         <div style={this.style}>
