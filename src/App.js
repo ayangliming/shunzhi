@@ -5,8 +5,7 @@ import SignUp from './SignUp'
 import {
     BrowserRouter as Router,
     Route,
-    Link,
-    Switch
+    Switch,
 } from  "react-router-dom"
 class App extends Component {
 
