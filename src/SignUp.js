@@ -1,6 +1,8 @@
   // 注册
 import React, { Component } from 'react'
 import axios from "axios"
+import store from './redux/store'
+
 class SignUp extends Component {
     style={
       "width":"300px",
@@ -16,8 +18,11 @@ class SignUp extends Component {
       axios.post('http://192.168.0.138:5000/signup',data)
       .then(res=>{
         console.log(res)
+        if (res.data.user) {
+          store.dispatch({type:"xxx",user:res.data.user})
 
-          alert(res.data.message)
+        }
+
       })
     }
 

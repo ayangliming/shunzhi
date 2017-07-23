@@ -1,7 +1,7 @@
 
 
 let user = {
-  username:"",
+  username:"登陆",
   email:"",
   avatar:""
 }

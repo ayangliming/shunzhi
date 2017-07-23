@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from  "react-router-dom"
 import {connect} from  "react-redux"
+import store from "./redux/store"
+
 class Header  extends Component{
   render(){
     let authStr =(
@@ -12,24 +14,27 @@ class Header  extends Component{
 
     let userInfo =(
       <div>
-        why|退出
+        {this.props.currentUser}|退出
       </div>
 
     )
 
 
     return(
-    <herder>
-    {this.props.isAuthenticated?authStr:userInfo}
+    <div>
+    <Link to="/">首页</Link>
+        {this.props.isAuthenticated?userInfo:authStr}
+    </div>
 
-    </herder>
+
 
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.account.isAuthenticated
+  isAuthenticated: state.account.isAuthenticated,
+  currentUser:state.account.currentUser
 })
 
 export default connect(mapStateToProps)(Header)

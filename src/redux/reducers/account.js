@@ -9,7 +9,7 @@ export default  function accountReducer(state=account,action){
 
   switch (action.type) {
     case "xxx":
-          return  state
+          return  {isAuthenticated:true,currentUser:action.user.username}
     default:
     return state;
 
