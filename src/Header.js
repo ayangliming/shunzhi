@@ -4,6 +4,11 @@ import {connect} from  "react-redux"
 import store from "./redux/store"
 
 class Header  extends Component{
+    logout=()=>{
+      console.log('logout')
+      localStorage.removeItem('userId')
+      store.dispatch({ type: 'LOG_OUT'})
+    }
   render(){
     let authStr =(
       <div>
@@ -14,7 +19,8 @@ class Header  extends Component{
 
     let userInfo =(
       <div>
-        {this.props.currentUser}|退出
+        {this.props.currentUser}
+        <Link　to="" onClick={this.logout}>退出</Link>
       </div>
 
     )
@@ -24,6 +30,7 @@ class Header  extends Component{
     <div>
     <Link to="/">首页</Link>
         {this.props.isAuthenticated?userInfo:authStr}
+
     </div>
 
 
